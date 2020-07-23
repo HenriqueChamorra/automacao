@@ -26,8 +26,7 @@ git clone https://github.com/HenriqueChamorra/automacao.git
 Para rodar os testes e baixar as suas dependências, importe como um projeto gradle utilizando o Intellij e execute as features desenvolvidas em cucumber,  localizadas em \src\test\resources\com\sicredi\features, ou utilize o comando abaixo:
 
 ```
-gradle wrapper
-gradlew clean test
+gradle clean test
 ```
 
 ## Relatório de Execução dos Testes 
