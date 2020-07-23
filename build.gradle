@@ -1,0 +1,43 @@
+
+apply plugin: 'java'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '6.2.2'
+    compile group: 'info.cukes', name: 'cucumber-core', version: '1.2.6'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '6.2.2'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-5'
+    compile group: 'com.aventstack', name: 'extentreports', version: '4.0.9'
+    testImplementation 'io.cucumber:cucumber-java:6.2.2'
+    testImplementation 'io.cucumber:cucumber-junit:6.2.2'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue','com.sicredi.steps', '--glue','com.sicredi.setup', 'src/test']
+        }
+    }
+}
+

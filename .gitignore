@@ -1,0 +1,29 @@
+git add .gradle
+.idea/
+.settings
+.classpath
+build/
+test-output/
+bin/
+gradle/
+screenshots/
+/logs/
+/report/
+out/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+files/nome_cenario.csv
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
