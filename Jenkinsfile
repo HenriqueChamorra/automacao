@@ -20,7 +20,7 @@ node {
                 sh "chmod +x -R ${WORKSPACE}"
 
                 try {
-                    sh "cd ${WORKSPACE}/ && ./gradlew clean test --debug"
+                    sh "cd ${WORKSPACE}/ && ./gradle clean test"
                 } finally {
                 }
             }
