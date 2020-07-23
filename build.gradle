@@ -2,9 +2,7 @@
 apply plugin: 'java'
 compileJava.options.encoding = 'UTF-8'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '5.6'
-}
+
 repositories {
     mavenCentral()
 }
@@ -26,8 +24,6 @@ configurations {
         extendsFrom testImplementation
     }
 }
-
-
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
